@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baby Celebration Invitation</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #fdf6f9, #f9e7f5);
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background-color: #f8c8dc;
+      padding: 20px;
+      border-bottom: 5px solid #f3a6c6;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #a83279;
+    }
+    .video-container {
+      margin: 30px auto;
+      max-width: 600px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    }
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .registry {
+      margin: 30px auto;
+      padding: 20px;
+    }
+    .registry a {
+      background: #a83279;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      font-size: 1.2em;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .registry a:hover {
+      background: #7a2459;
+    }
+    .rsvp {
+      margin: 40px auto;
+      max-width: 500px;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    .rsvp h2 {
+      text-align: center;
+      color: #a83279;
+    }
+    .rsvp label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #444;
+    }
+    .rsvp input, .rsvp select, .rsvp textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+    .rsvp button {
+      display: block;
+      margin: 20px auto 0;
+      background: #a83279;
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .rsvp button:hover {
+      background: #7a2459;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>You're Invited!</h1>
+    <p>For event details, please click play below 🎥</p>
+  </header>
+
+  <div class="video-container">
+    <video controls poster="thumbnail.png">
+      <source src="invitation.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p class="note">🎥 Click the play button for full event details!</p>
+  </div>
+
+  <div class="registry">
+    <a href="https://www.amazon.com/baby-reg/nami-krish-november-2025-fuquayvarina/3RU0IHYIXC25Y?ref_=cm_sw_r_cp_ud_dp_4DMC5VRSASF7C8XVQYG3_1" target="_blank">
+      View Our Baby Registry
+    </a>
+  </div>
+
+  <div class="rsvp">
+    <h2>RSVP</h2>
+    <form name="rsvp" method="POST" data-netlify="true">
+      <!-- Required hidden input -->
+      <input type="hidden" name="form-name" value="rsvp">
+      <input type="hidden" name="_redirect" value="/success.html">
+
+      <p>
+        <label for="name">Your Name: 
+          <input type="text" id="name" name="name" required>
+        </label>
+      </p>
+
+      <p>
+        <label for="email">Your Email: 
+          <input type="email" id="email" name="email" required>
+        </label>
+      </p>
+
+      <p>
+        <label for="attendance">Will you attend? 
+          <select id="attendance" name="attendance" required>
+            <option value="">Select...</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Maybe">Maybe</option>
+          </select>
+        </label>
+      </p>
+
+      <p>
+        <label for="guests">How many guests (including you)? 
+          <select id="guests" name="guests" required>
+            <option value="">Select...</option>
+            <option value="1">Just Me</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5+">5+</option>
+          </select>
+        </label>
+      </p>
+
+      <p>
+        <label for="message">Message (Optional): 
+          <textarea id="message" name="message" rows="3"></textarea>
+        </label>
+      </p>
+
+      <p>
+        <button type="submit">Submit RSVP</button>
+      </p>
+    </form>
+  </div>
+
+  <!-- Static form for Netlify detection -->
+  <form name="rsvp" data-netlify="true" hidden>
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <select name="attendance"></select>
+    <select name="guests"></select>
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>
