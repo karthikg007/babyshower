@@ -100,7 +100,6 @@
     <h1>You're Invited!</h1>
     <p>For event details, please click play below 🎥</p>
   </header>
-
   <div class="video-container">
     <video controls poster="thumbnail.png">
       <source src="invitation.mp4" type="video/mp4">
@@ -108,32 +107,26 @@
     </video>
     <p class="note">🎥 Click the play button for full event details!</p>
   </div>
-
   <div class="registry">
     <a href="https://www.amazon.com/baby-reg/nami-krish-november-2025-fuquayvarina/3RU0IHYIXC25Y?ref_=cm_sw_r_cp_ud_dp_4DMC5VRSASF7C8XVQYG3_1" target="_blank">
       View Our Baby Registry
     </a>
   </div>
-
   <div class="rsvp">
     <h2>RSVP</h2>
     <form name="rsvp" method="POST" data-netlify="true">
-      <!-- Required hidden input -->
       <input type="hidden" name="form-name" value="rsvp">
       <input type="hidden" name="_redirect" value="/success.html">
-
       <p>
         <label for="name">Your Name: 
           <input type="text" id="name" name="name" required>
         </label>
       </p>
-
       <p>
         <label for="email">Your Email: 
           <input type="email" id="email" name="email" required>
         </label>
       </p>
-
       <p>
         <label for="attendance">Will you attend? 
           <select id="attendance" name="attendance" required>
@@ -144,7 +137,6 @@
           </select>
         </label>
       </p>
-
       <p>
         <label for="guests">How many guests (including you)? 
           <select id="guests" name="guests" required>
@@ -157,20 +149,16 @@
           </select>
         </label>
       </p>
-
       <p>
         <label for="message">Message (Optional): 
           <textarea id="message" name="message" rows="3"></textarea>
         </label>
       </p>
-
       <p>
         <button type="submit">Submit RSVP</button>
       </p>
     </form>
   </div>
-
-  <!-- Static form for Netlify detection -->
   <form name="rsvp" data-netlify="true" hidden>
     <input type="text" name="name">
     <input type="email" name="email">
