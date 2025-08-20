@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,9 +24,19 @@
       font-size: 2.5em;
       color: #a83279;
     }
-    .video-container {
+    .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
       margin: 30px auto;
+      padding: 0 20px;
+    }
+    .video-container {
+      flex: 1;
+      min-width: 300px;
       max-width: 600px;
+      margin-right: 20px;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
@@ -35,8 +46,14 @@
       height: auto;
       display: block;
     }
+    .right-container {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
     .registry {
-      margin: 30px auto;
       padding: 20px;
     }
     .registry a {
@@ -52,8 +69,6 @@
       background: #7a2459;
     }
     .rsvp {
-      margin: 40px auto;
-      max-width: 500px;
       background: white;
       padding: 25px;
       border-radius: 12px;
@@ -93,6 +108,20 @@
     .rsvp button:hover {
       background: #7a2459;
     }
+    @media (max-width: 768px) {
+      .content-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .video-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      .right-container {
+        width: 100%;
+        max-width: 500px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -100,65 +129,73 @@
     <h1>You're Invited!</h1>
     <p>For event details, please click play below 🎥</p>
   </header>
-  <div class="video-container">
-    <video controls poster="thumbnail.png">
-      <source src="invitation.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p class="note">🎥 Click the play button for full event details!</p>
+
+  <div class="content-container">
+    <div class="video-container">
+      <video controls poster="thumbnail.png">
+        <source src="invitation.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="note">🎥 Click the play button for full event details!</p>
+    </div>
+
+    <div class="right-container">
+      <div class="registry">
+        <a href="https://www.amazon.com/baby-reg/nami-krish-november-2025-fuquayvarina/3RU0IHYIXC25Y?ref_=cm_sw_r_cp_ud_dp_4DMC5VRSASF7C8XVQYG3_1" target="_blank">
+          View Our Baby Registry
+        </a>
+      </div>
+
+      <div class="rsvp">
+        <h2>RSVP</h2>
+        <form name="rsvp" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="rsvp">
+          <input type="hidden" name="_redirect" value="/success.html">
+          <p>
+            <label for="name">Your Name: 
+              <input type="text" id="name" name="name" required>
+            </label>
+          </p>
+          <p>
+            <label for="email">Your Email: 
+              <input type="email" id="email" name="email" required>
+            </label>
+          </p>
+          <p>
+            <label for="attendance">Will you attend? 
+              <select id="attendance" name="attendance" required>
+                <option value="">Select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Maybe">Maybe</option>
+              </select>
+            </label>
+          </p>
+          <p>
+            <label for="guests">How many guests (including you)? 
+              <select id="guests" name="guests" required>
+                <option value="">Select...</option>
+                <option value="1">Just Me</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5+">5+</option>
+              </select>
+            </label>
+          </p>
+          <p>
+            <label for="message">Message (Optional): 
+              <textarea id="message" name="message" rows="3"></textarea>
+            </label>
+          </p>
+          <p>
+            <button type="submit">Submit RSVP</button>
+          </p>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="registry">
-    <a href="https://www.amazon.com/baby-reg/nami-krish-november-2025-fuquayvarina/3RU0IHYIXC25Y?ref_=cm_sw_r_cp_ud_dp_4DMC5VRSASF7C8XVQYG3_1" target="_blank">
-      View Our Baby Registry
-    </a>
-  </div>
-  <div class="rsvp">
-    <h2>RSVP</h2>
-    <form name="rsvp" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="rsvp">
-      <input type="hidden" name="_redirect" value="/success.html">
-      <p>
-        <label for="name">Your Name: 
-          <input type="text" id="name" name="name" required>
-        </label>
-      </p>
-      <p>
-        <label for="email">Your Email: 
-          <input type="email" id="email" name="email" required>
-        </label>
-      </p>
-      <p>
-        <label for="attendance">Will you attend? 
-          <select id="attendance" name="attendance" required>
-            <option value="">Select...</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Maybe">Maybe</option>
-          </select>
-        </label>
-      </p>
-      <p>
-        <label for="guests">How many guests (including you)? 
-          <select id="guests" name="guests" required>
-            <option value="">Select...</option>
-            <option value="1">Just Me</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5+">5+</option>
-          </select>
-        </label>
-      </p>
-      <p>
-        <label for="message">Message (Optional): 
-          <textarea id="message" name="message" rows="3"></textarea>
-        </label>
-      </p>
-      <p>
-        <button type="submit">Submit RSVP</button>
-      </p>
-    </form>
-  </div>
+
   <form name="rsvp" data-netlify="true" hidden>
     <input type="text" name="name">
     <input type="email" name="email">
