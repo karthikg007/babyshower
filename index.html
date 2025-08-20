@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Baby Celebration Invitation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
@@ -28,14 +28,91 @@
       position: relative;
     }
     header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      background: linear-gradient(45deg, #a83279, #f3a6c6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
       margin: 0;
-      font-size: 2.8em;
-      color: #a83279;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      animation: bounceIn 1s ease-out;
+      position: relative;
+      display: inline-block;
     }
-    header p {
+    header h1::before, header h1::after {
+      content: '\f004';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.6em;
+      color: #f3a6c6;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    header h1::before { left: -30px; }
+    header h1::after { right: -30px; }
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+    .event-details, .rsvp-details, .registry-details {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0;
+      padding: 10px 20px;
+      border-radius: 8px;
       font-size: 1.2em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-decoration: none;
+    }
+    .event-details {
+      font-family: 'Dancing Script', cursive;
       color: #7a2459;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      animation: slideIn 1s ease-out 0.2s forwards;
+      opacity: 0;
+    }
+    .rsvp-details {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #a83279;
+      border: 2px dashed #f3a6c6;
+      animation: slideIn 1s ease-out 0.4s forwards;
+      opacity: 0;
+      transition: background 0.3s;
+    }
+    .rsvp-details:hover {
+      background: rgba(248, 200, 220, 0.3);
+    }
+    .registry-details {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      color: #ffffff;
+      background: #a83279;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border: 2px solid #f3a6c6;
+      animation: slideIn 1s ease-out 0.6s forwards;
+      opacity: 0;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .registry-details:hover {
+      background: #7a2459;
+      transform: scale(1.05);
+    }
+    .registry-details i {
+      font-size: 1.3em;
+      color: #f3a6c6;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
     .content-container {
       display: flex;
@@ -45,10 +122,6 @@
       margin: 30px auto;
       padding: 0 20px;
       animation: slideIn 1s ease-out;
-    }
-    @keyframes slideIn {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
     }
     .video-container {
       flex: 1;
@@ -77,28 +150,6 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-    }
-    .registry {
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .registry a {
-      background: #a83279;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      font-size: 1.2em;
-      border-radius: 8px;
-      transition: transform 0.3s, background 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .registry a:hover {
-      background: #7a2459;
-      transform: scale(1.05);
     }
     .rsvp {
       background: rgba(255, 255, 255, 0.95);
@@ -162,15 +213,22 @@
         width: 100%;
         max-width: 500px;
       }
+      header h1 {
+        font-size: 2.5em;
+      }
+      .event-details, .rsvp-details, .registry-details {
+        font-size: 1em;
+        padding: 8px 15px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>You're Invited!</h1>
-    <p>Event details, please click play below 🎥</p>
-    <p>RSVP - Use the RSVP section</p>
-    <p>Baby Registry - use the provided link</p>
+    <p class="event-details"><i class="fas fa-video"></i> Event details, please click play below 🎥</p>
+    <a href="#rsvp-section" class="rsvp-details"><i class="fas fa-envelope"></i> RSVP - Use the RSVP section</a>
+    <a href="https://www.amazon.com/baby-reg/nami-krish-november-2025-fuquayvarina/3RU0IHYIXC25Y?ref_=cm_sw_r_cp_ud_dp_4DMC5VRSASF7C8XVQYG3_1" target="_blank" class="registry-details"><i class="fas fa-gift"></i> Baby Registry</a>
   </header>
 
   <div class="content-container">
@@ -183,15 +241,9 @@
     </div>
 
     <div class="right-container">
-      <div class="registry">
-        <a href="https://www.amazon.com/baby-reg/nami-krish-november-2025-fuquayvarina/3RU0IHYIXC25Y?ref_=cm_sw_r_cp_ud_dp_4DMC5VRSASF7C8XVQYG3_1" target="_blank">
-          <i class="fas fa-gift"></i> View Our Baby Registry
-        </a>
-      </div>
-
-      <div class="rsvp">
+      <div class="rsvp" id="rsvp-section">
         <h2><i class="fas fa-envelope"></i> RSVP</h2>
-        <form name="rsvp" method="POST" data-netlify="true">
+        <form name="rsvp" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="/success.html">
           <input type="hidden" name="form-name" value="rsvp">
           <input type="hidden" name="_redirect" value="/success.html">
           <p>
@@ -231,6 +283,7 @@
               <textarea id="message" name="message" rows="3"></textarea>
             </label>
           </p>
+          <div data-netlify-recaptcha="true"></div>
           <p>
             <button type="submit"><i class="fas fa-check"></i> Submit RSVP</button>
           </p>
